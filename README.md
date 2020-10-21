@@ -22,5 +22,5 @@ sh ./make_solution.sh
 
 #### Пример:
 ```
-./prog --datafile=data.txt --varnumber=20 --seed=42
+./generator --datafile=data.txt --varnumber=20 --seed=42
 ```
