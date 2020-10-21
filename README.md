@@ -10,7 +10,7 @@ git clone https://github.com/nikatov/blockchain-homework-1.git
 ```
 ## Компиляция программы
 ```
-sh ./make.sh
+sh ./make_solution.sh
 ```
 ## Запуск программы
 #### Параметры:
