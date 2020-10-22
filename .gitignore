@@ -1,3 +1,10 @@
 .idea/
 .DS_Store
-generator
+/.vs
+/xcode
+/cmake-build-debug
+*.DS_Store
+*.xcodeproj
+*~
+/build
+/bin
