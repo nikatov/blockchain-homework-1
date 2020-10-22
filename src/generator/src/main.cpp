@@ -1,7 +1,7 @@
-#include <iostream>
-using namespace std;
+#include "GeneratorApp.h"
 
 int main(int argc, char** argv) {
-  std::cout << "hello, world!" << std::endl;
-  return 0;
+  GeneratorApp app;
+  app.init(argc, argv);
+  return app.run();
 }

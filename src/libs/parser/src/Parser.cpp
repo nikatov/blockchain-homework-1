@@ -3,33 +3,32 @@
 Parser::Parser(int argc,
        char **argv,
        const std::vector<std::string>& paramVec) {
-  for(int i = 1; i < argc; ++i) {
+  for(int i = 1; i < argc; i += 2) {
     std::string param(argv[i]);
-    if (param.length() < 5) {
+    if (param.length() < 3) {
       std::cout << "Внимание! Параметр '" << param << "' пропущен, тк он имеет слишком маленькую длину" << std::endl;
-      std::cout << "Введите параметр в формате '--[key_name]=[value]'" << std::endl;
+      std::cout << "Введите параметр в формате '--[key_name] [value]'" << std::endl;
       continue;
     }
     if (param[0] != '-' || param[1] != '-') {
       std::cout << "Внимание! Параметр '" << param << "' пропущен, тк он должен начинаться с '--'" << std::endl;
-      std::cout << "Введите параметр в формате '--[key_name]=[value]'" << std::endl;
-      continue;
-    }
-    size_t ind = param.find('=');
-    if (ind == param.npos) {
-      std::cout << "Внимание! Параметр '" << param << "' пропущен, тк не найден символ '='" << std::endl;
-      std::cout << "Введите параметр в формате '--[key_name]=[value]'" << std::endl;
+      std::cout << "Введите параметр в формате '--[key_name] [value]'" << std::endl;
       continue;
     }
     std::string key = param.substr(2, ind - 2);
     if (std::find(paramVec.begin(), paramVec.end(), key) == paramVec.end()) {
       std::cout << "Внимание! Параметр '" << param << "' пропущен, тк он отсутствует среди возможных:" << std::endl;
       for (const auto& param : paramVec) {
-        std::cout << param << " / ";
+        std::cout << "/ "param << " /";
       }
       continue;
     }
-    std::string value = param.substr(param.find('=') + 1, param.length());
+    if (i + 1 >= argc) {
+      std::cout << "Внимание! Параметр '" << param << "' пропущен, тк отсутствует значение" << std::endl;
+      std::cout << "Введите параметр в формате '--[key_name] [value]'" << std::endl;
+      continue;
+    }
+    std::string value = argv[i + 1]);
     _params.insert(std::make_pair(key, value));
   }
 }
