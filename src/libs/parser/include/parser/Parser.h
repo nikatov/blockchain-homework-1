@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <cstdio>
 
+// Парсер параметров командной строки
+
 class Parser {
 public:
   Parser(int argc, char **argv, const std::vector<std::string>& paramVec);
