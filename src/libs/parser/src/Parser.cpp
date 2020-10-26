@@ -15,11 +15,11 @@ Parser::Parser(int argc,
       std::cout << "Введите параметр в формате '--[key_name] [value]'" << std::endl;
       continue;
     }
-    std::string key = param.substr(2, ind - 2);
+    std::string key = param.substr(2, param.size());
     if (std::find(paramVec.begin(), paramVec.end(), key) == paramVec.end()) {
       std::cout << "Внимание! Параметр '" << param << "' пропущен, тк он отсутствует среди возможных:" << std::endl;
       for (const auto& param : paramVec) {
-        std::cout << "/ "param << " /";
+        std::cout << "/ " << param << " /";
       }
       continue;
     }
@@ -28,7 +28,7 @@ Parser::Parser(int argc,
       std::cout << "Введите параметр в формате '--[key_name] [value]'" << std::endl;
       continue;
     }
-    std::string value = argv[i + 1]);
+    std::string value = argv[i + 1];
     _params.insert(std::make_pair(key, value));
   }
 }

@@ -1,1 +1,3 @@
-cmake -B xcode -G Xcode
+rm ./xcode/CMakeCache.txt
+cmake -G Xcode -B xcode
+
